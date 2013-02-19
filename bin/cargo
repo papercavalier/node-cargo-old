@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+var io    = require('socket.io').listen(8080)
+  , scale = require('dymo-scale');
+
+io.sockets.on('connection', function (socket) {
+  setInterval(function() { socket.emit('dymo', scale.poll().value) }, 250);
+});

@@ -1,0 +1,29 @@
+{
+  "name": "node-cargo",
+  "description": "The Node.js Cargo app",
+  "version": "0.0.1",
+  "maintainers": [
+    {
+      "name": "Paper Cavalier",
+      "email": "code@papercavalier.com",
+      "web": "http://papercavalier.com"
+    }
+  ],
+  "contributors": [],
+  "bugs": {
+    "url": ""
+  },
+  "licenses": {},
+  "repositories": {},
+  "dependencies": {
+    "socket.io": "0.9.x",
+    "dymo-scale": "0.0.x"
+  },
+  "homepage": "",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "directories": {
+    "bin": "bin"
+  }
+}
