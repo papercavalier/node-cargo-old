@@ -7,7 +7,7 @@ var io    = require('socket.io').listen(8080)
 io.sockets.on('connection', function(socket) {
   setInterval(function() {
     if(res = scale.poll()) {
-      socket.emit(res.value);
+      socket.emit('scale', res.value);
     }
   }, 250);
 
