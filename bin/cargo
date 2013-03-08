@@ -6,10 +6,13 @@ var io    = require('socket.io').listen(8080)
 
 io.sockets.on('connection', function(socket) {
   setInterval(function() {
-    if(res = scale.poll()) {
-      socket.emit('scale', res.value);
-    }
-  }, 250);
+    scale.read(function(error, data) {
+      if (error) {
+        console.log(error);
+      }
+      socket.emit('scale', data.value);
+    });
+  }, 1000);
 
   socket.on('printer', function(data) {
     var path = '/tmp/' + new Date().getTime();
