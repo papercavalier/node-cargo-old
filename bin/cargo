@@ -5,14 +5,19 @@ var io    = require('socket.io').listen(8080)
   , fs    = require('fs');
 
 io.sockets.on('connection', function(socket) {
-  setInterval(function() {
-    scale.read(function(error, data) {
-      if (error) {
-        console.log(error);
+  var poll;
+
+  (poll = function() {
+    scale.read(function(err, data) {
+      if(err) {
+        return setTimeout(poll, 2000);
       }
+
       socket.emit('scale', data.value);
+      return setTimeout(poll, 1000);
     });
-  }, 1000);
+  })();
+
 
   socket.on('printer', function(data) {
     var path = '/tmp/' + new Date().getTime();
