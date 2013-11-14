@@ -10,14 +10,14 @@
     }
   ],
   "contributors": [],
-  "bugs": {
-    "url": ""
-  },
   "licenses": {},
-  "repositories": {},
   "dependencies": {
     "socket.io": "0.9.x",
     "dymo-scale": "0.1.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/papercavalier/node-cargo"
   },
   "homepage": "",
   "engines": {
