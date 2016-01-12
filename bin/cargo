@@ -22,7 +22,9 @@ io.sockets.on('connection', function(socket) {
   socket.on('printer', function(data) {
     var path = '/tmp/' + new Date().getTime();
 
-    fs.writeFile(path, data, function(err) {
+    binaryData = new Buffer(data, 'base64');
+
+    fs.writeFile(path, binaryData, function(err) {
       if(err) return;
 
       console.log ('lpr -l ' + path)
