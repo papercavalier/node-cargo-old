@@ -25,6 +25,8 @@ io.sockets.on('connection', function(socket) {
     fs.writeFile(path, data, function(err) {
       if(err) return;
 
+      console.log ('lpr -l ' + path)
+
       exec('lpr -l ' + path, function() {
         fs.unlink(path);
       });
