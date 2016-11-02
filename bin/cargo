@@ -14,7 +14,7 @@ io.sockets.on('connection', function(socket) {
       }
 
       socket.emit('scale', data.value);
-      return setTimeout(poll, 1000);
+      return setTimeout(poll, 100);
     });
   })();
 
