@@ -18,6 +18,10 @@ io.sockets.on('connection', function(socket) {
     });
   })();
 
+  socket.on('disconnect', function () {
+    clearTimeout(poll);
+    poll = null;
+  });
 
   socket.on('printer', function(data) {
     var path = '/tmp/' + new Date().getTime();
