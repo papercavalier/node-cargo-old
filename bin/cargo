@@ -10,17 +10,17 @@ io.sockets.on('connection', function(socket) {
   (poll = function() {
     scale.read(function(err, data) {
       if(err) {
-        return setTimeout(() => poll, 2000);
+        return setTimeout(poll, 2000);
       }
 
       socket.emit('scale', data.value);
-      return setTimeout(() => poll, 100);
+      return setTimeout(poll, 100);
     });
   })();
 
   socket.on('disconnect', function () {
     clearTimeout(poll);
-    poll = null;
+    poll = () => null;
   });
 
   socket.on('printer', function(data) {
